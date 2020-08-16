@@ -35,9 +35,15 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-(eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
 
+(after! tramp
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path))
 
+(after! org
+  (setq
+    org-todo-keywords '((sequence "TODO" "WAITING" "|" "DONE" "CANCELED"))
+    org-todo-keywords-for-agenda '((sequence "TODO" "WAITING" "|" "DONE" "CANCELED"))
+  ))
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one

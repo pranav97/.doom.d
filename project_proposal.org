@@ -1,0 +1,25 @@
+#+TITLE: Project Proposal
+
+
+
+* Introduction
+
+The most recent version of QSMA that I worked on had timeslotting exactly like AlohaQS. Every join in AlohaQS
+
+* Fixing the bug with too many nodes
+
+One of the biggest flaws of the previous version of QSMA was that we would start the random backoff at a certain hardcoded value and then halfed the random backoff for every subsequent join. This made it so that at a certain point, there would be no more room for nodes to join. The simple solution to this is to add a max and min random backoff and then oscilating between as nodes join or exit the queue. The only drawback to this solution is that the join period might prolong longer than the intented 1 time slot.
+
+* Multiple Joins
+
+** TODO look at multiple joins in QSMA from JJ
+
+** Suggest a new way to do multiple joins just for comparison
+
+* Failure
+
+Distributed state is one of the biggest criticisms of QSMA. If there is failure in one of the nodes, for example, the protocol is not at all resistant to that. I would like to pursue some of the ideas related to this criticism of QSMA.
+
+** Packet loss
+
+** Bit flipped
